@@ -25,6 +25,7 @@
     <IISExpressUseClassicPipelineMode />
     <NuGetPackageImportStamp>28c90d11</NuGetPackageImportStamp>
     <TypeScriptToolsVersion>1.1</TypeScriptToolsVersion>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,6 +70,9 @@
     <Content Include="doc\CHANGELOG.md" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
+    <Content Include="packages.config" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="test\not_chutzpah.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -83,6 +87,7 @@
     <Content Include="index.html" />
     <Content Include="karma.conf.js" />
     <Content Include="src\app.html" />
+    <TypeScriptCompile Include="Scripts\typings\jasmine\jasmine.d.ts" />
     <TypeScriptCompile Include="src\app.ts" />
     <Content Include="src\child-router.html" />
     <TypeScriptCompile Include="src\child-router.ts" />
@@ -94,14 +99,19 @@
     <TypeScriptCompile Include="src\welcome.ts" />
     <Content Include="styles\styles.css" />
     <Content Include="Web.config" />
+    <TypeScriptCompile Include="test\welcome.spec.ts" />
     <TypeScriptCompile Include="typings\aurelia\aurelia.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
@@ -114,7 +124,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1470</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

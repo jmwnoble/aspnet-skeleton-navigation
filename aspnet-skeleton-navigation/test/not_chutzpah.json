@@ -1,0 +1,19 @@
+﻿{
+    "Framework": "jasmine",
+    "TestHarnessReferenceMode": "AMD",
+    "TestHarnessLocationMode": "SettingsFileAdjacent",
+    "RootReferencePathMode":"SettingsFileDirectory",
+   // "AMDBasePath": "../src",
+    "Compile": {
+        "Mode": "External",
+        "Extensions": [ ".ts" ],
+        "ExtensionsWithNoOutput": [ ".d.ts" ]
+    },
+    "References": [
+        { "Path": "../config.js" },
+        { "Path": "../jspm_packages" }
+    ],
+    "Tests": [
+        { "Path": "" }
+    ]
+}

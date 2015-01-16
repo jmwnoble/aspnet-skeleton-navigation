@@ -15,6 +15,11 @@ var browserSync = require('browser-sync');
 var changed = require('gulp-changed');
 var plumber = require('gulp-plumber');
 var replace = require('gulp-replace');
+var karma = require('karma').server;
+
+var debug = require('gulp-debug');
+
+var unzip = require('unzip');
 
 var path = {
     source: 'src/**/*.js',
@@ -59,6 +64,7 @@ gulp.task('build-amd', function () {
 });
 
 gulp.task('copy-typescript-output', function () {
+    console.log("farthouse")
     return gulp.src(path.source)
       .pipe(plumber())
       .pipe(changed(path.output, { extension: '.js' }))
@@ -107,7 +113,7 @@ gulp.task('changelog', function (callback) {
 gulp.task('build', function (callback) {
     return runSequence(
       'clean',
-      ['copy-typescript-output', 'build-html'],
+      ['copy-typescript-output', 'build-html', 'test'],
       callback
     );
 });
@@ -149,4 +155,22 @@ gulp.task('prepare-release', function (callback) {
       'changelog',
       callback
     );
+});
+
+
+//From https://github.com/karma-runner/gulp-karma/blob/master/gulpfile.js
+
+gulp.task('test', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done);
+});
+
+gulp.task('tdd', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js'
+    }, function() {
+        done();
+    });
 });

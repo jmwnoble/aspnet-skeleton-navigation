@@ -13,12 +13,13 @@ export class Flickr {
     }
 
     activate() {
+
         return this.http.jsonp(url).then(response => {
             this.images = response.content.items;
-    });
-}
+        });
+    }
 
-canDeactivate() {
-    return confirm('Are you sure you want to leave?');
-}
+    canDeactivate() {
+        return confirm('Are you sure you want to leave?');
+    }
 }

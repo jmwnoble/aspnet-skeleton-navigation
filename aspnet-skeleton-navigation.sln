@@ -20,6 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7716C03C-C092-4A52-8DC0-CAE92D5EFB7A}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		WebEssentials-Settings.json = WebEssentials-Settings.json
 	EndProjectSection
 EndProject
 Global
